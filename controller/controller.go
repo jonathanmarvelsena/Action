@@ -149,20 +149,13 @@ func EnterRoom(w http.ResponseWriter, r *http.Request) {
 		return
 	}
 
-	roomIDStr := r.Form.Get("id_room")
+	roomIDStr := r.Fom.Get("id_room")
 	accountIDStr := r.Form.Get("id_account")
 
 	roomID, err := strconv.Atoi(roomIDStr)
 	if err != nil {
 		log.Println(err)
 		SendErrorResponse(w, 400, "Invalid room ID")
-		return
-	}
-
-	accountID, err := strconv.Atoi(accountIDStr)
-	if err != nil {
-		log.Println(err)
-		SendErrorResponse(w, 400, "Invalid account ID")
 		return
 	}
 
