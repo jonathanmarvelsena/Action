@@ -161,7 +161,7 @@ func EnterRoom(w http.ResponseWriter, r *http.Request) {
 
 	accountID, err := strconv.Atoi(accountIDStr)
 	if err != nil {
-		log.Println(err)
+		log.Println(
 		SendErrorResponse(w, 400, "Invalid account ID")
 		return
 	}
