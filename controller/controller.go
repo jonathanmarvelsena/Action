@@ -149,7 +149,7 @@ func EnterRoom(w http.ResponseWriter, r *http.Request) {
 		return
 	}
 
-	roomIDStr := r.Form.Get("id_room")
+	roomIDStr := r.Fom.Get("id_room")
 	accountIDStr := r.Form.Get("id_account")
 
 	roomID, err := strconv.Atoi(roomIDStr)
