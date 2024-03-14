@@ -159,13 +159,6 @@ func EnterRoom(w http.ResponseWriter, r *http.Request) {
 		return
 	}
 
-	accountID, err := strconv.Atoi(accountIDStr)
-	if err != nil {
-		log.Println(
-		SendErrorResponse(w, 400, "Invalid account ID")
-		return
-	}
-
 	var room m.Room
 	err = db.QueryRow("SELECT r.id, r.room_name, g.id, g.name, g.max_player FROM rooms r JOIN games g ON r.id_game = g.id WHERE r.id = ?", roomID).
 		Scan(&room.ID, &room.Room_name, &room.ID_game.ID, &room.ID_game.Name, &room.ID_game.Max_player)
